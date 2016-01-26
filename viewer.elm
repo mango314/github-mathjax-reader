@@ -10,28 +10,28 @@ import Task exposing (..)
 
 -- VIEW
 
-view : String -> Result String (List String) -> Html
-view string result =
+view : String -> String -> String -> Result String (List String) -> Html
+view string1 string2 string3 result =
   let field =
       div [] [
         input
           [ placeholder "Owner"
-          , value string
+          , value string1
           , on "input" targetValue (Signal.message query.address)
           , fieldStyle
           ]
           [] ,
         input
           [ placeholder "Repo"
-          , value string
-          , on "input" targetValue (Signal.message query.address)
+          , value string2
+          , on "input" targetValue (Signal.message repo.address)
           , fieldStyle
           ]
           [] ,
         input
           [ placeholder "File"
-          , value string
-          , on "input" targetValue (Signal.message query.address)
+          , value string3
+          , on "input" targetValue (Signal.message file.address)
           , fieldStyle
           ]
           []
@@ -71,13 +71,19 @@ myStyle =
 -- WIRING
 
 main =
-  Signal.map2 view query.signal results.signal
-
+  Signal.map4 view query.signal repo.signal file.signal results.signal
 
 query : Signal.Mailbox String
 query =
   Signal.mailbox ""
 
+repo : Signal.Mailbox String
+repo =
+  Signal.mailbox ""
+
+file : Signal.Mailbox String
+file =
+  Signal.mailbox ""
 
 results : Signal.Mailbox (Result String (List String))
 results =
