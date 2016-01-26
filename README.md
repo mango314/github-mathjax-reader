@@ -1,6 +1,6 @@
 # github-mathjax-reader
 
-Github does supports markdown but not math-jax.  Nor will they ever (find source).  
+Github does supports markdown but not math-jax.  Nor will they ever (find source).  It is a "maintenance burden" (see [**no**](https://github.com/github/markup/issues/274))
 
 MathOverflow is nice except it is only for Q/A type posts.  
 
