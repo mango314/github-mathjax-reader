@@ -89,10 +89,10 @@ results : Signal.Mailbox (Result String (List RepoInfo))
 results =
   Signal.mailbox (Err "A valid US zip code is 5 numbers.")
 
-
+-- x |> f = f x
 port requests : Signal (Task x ())
 port requests =
-  Signal.map fetchData query.signal
+  Signal.map lookupGitHub query.signal
     |> Signal.map (\ task -> Task.toResult task `andThen` Signal.send results.address)
 
 
@@ -113,6 +113,20 @@ repoInfoListDecoder : Json.Decoder (List RepoInfo)
 repoInfoListDecoder =
   Json.list repoInfoDecoder
 
-fetchData : String -> Task Http.Error (List RepoInfo)
-fetchData url =
-  Http.get repoInfoListDecoder url
+--fetchData : String -> Task String (List RepoInfo)
+--fetchData url =
+--  Http.get repoInfoListDecoder url
+  
+
+lookupGitHub : String -> Task String (List RepoInfo)
+lookupGitHub query =
+  let toUrl =
+        if String.length query == 0
+          then fail "Who Owns the Repository?"
+        else if String.length query > 0 && String.all Char.isLower query
+          then succeed ("https://api.github.com/users/" ++ query ++ "/repos")
+          else fail "Please use lower case"
+  in
+      toUrl `andThen` (mapError (always "Not found :(") << Http.get repoInfoListDecoder)
+      
+      
