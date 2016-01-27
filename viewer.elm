@@ -50,7 +50,7 @@ view string1 string2 string3 result =
 fieldStyle : Attribute
 fieldStyle =
   style
-    [ ("width", "31%")
+    [ ("width", "32%")
     , ("height", "40px")
     , ("padding", "10px 0")
     , ("font-size", "2em")
@@ -92,25 +92,26 @@ results =
 
 port requests : Signal (Task x ())
 port requests =
-  Signal.map lookupZipCode query.signal
+  Signal.map lookupGitHub query.signal
     |> Signal.map (\task -> Task.toResult task `andThen` Signal.send results.address)
 
 
-lookupZipCode : String -> Task String (List String)
-lookupZipCode query =
+lookupGitHub : String -> Task String (List String)
+lookupGitHub query =
   let toUrl =
-        if String.length query == 5 && String.all Char.isDigit query
-          then succeed ("http://api.zippopotam.us/us/" ++ query)
-          else fail "Give me a valid US zip code!"
+        if String.length query == 0
+          then fail "Who Owns the Repository?"
+        else if String.length query > 0 && String.all Char.isLower query
+          then succeed ("https://api.github.com/users/" ++ query ++ "/repos")
+          else fail "Please use lower case"
   in
-      toUrl `andThen` (mapError (always "Not found :(") << Http.get places)
+      toUrl `andThen` (mapError (always "Not found :(") << Http.get repos)
 
-
-places : Json.Decoder (List String)
-places =
-  let place =
-        Json.object2 (\city state -> city ++ ", " ++ state)
-          ("place name" := Json.string)
-          ("state" := Json.string)
+-- http://package.elm-lang.org/packages/elm-lang/core/1.0.0/Json-Decode#:=
+repos : Json.Decoder (List String)
+repos =
+  let repo =
+        Json.object1 (\ name -> name)
+          ("name" := Json.string)
   in
-      "places" := Json.list place
+      "repos" := Json.list repo
