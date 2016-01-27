@@ -110,6 +110,10 @@ Here's getting Json Encod/Decode to work on lists.
     [1,2,3,4,5] : List Json.Encode.Value
     > Json.Encode.list (List.map Json.Encode.int [1,2,3,4,5])
     { 0 = 1, 1 = 2, 2 = 3, 3 = 4, 4 = 5 } : Json.Encode.Value
+    
+---
+
+I asked on StackOverflow and someone wrote a great [answer](http://stackoverflow.com/questions/35028430/how-to-extract-the-results-of-http-requests-in-elm) and [gist](https://gist.github.com/freakingawesome/7f86ed7683cfeeec4557).  It certainly works if you pop into elm-lang.org/try but only for the one New York Times repo I ask about in the question.  My plan is to borrow his Json decoder and keep moving towards reading all Github probiles.
 
 
 **Disclaimer** every bit of this could be wrong!
