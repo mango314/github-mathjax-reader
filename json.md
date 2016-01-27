@@ -85,6 +85,13 @@ Try **#3** - at least this is not a type mismatch!  Still can't get the informat
     > Http.get (Json.string) "https://api.github.com/users/monsieurcactus/repos"
     { tag = "AndThen", task = { tag = "Catch", task = { tag = "Async", asyncFunction = <function> }, callback = <function> }, callback = <function> }
         : Task.Task Http.Error String
+        
+Try **#4** Json.[Encode](http://package.elm-lang.org/packages/elm-lang/core/1.0.0/Json-Encode) Json.[Decode](http://package.elm-lang.org/packages/elm-lang/core/1.0.0/Json-Decode)
+
+    > import Json.Encode
+    > import Json.Decode
+    > Json.Decode.decodeValue Json.Decode.int (Json.Encode.int 5)
+    Ok 5 : Result.Result String Int
 
 
 
