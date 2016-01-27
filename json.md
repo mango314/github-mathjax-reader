@@ -92,7 +92,24 @@ Try **#4** Json.[Encode](http://package.elm-lang.org/packages/elm-lang/core/1.0.
     > import Json.Decode
     > Json.Decode.decodeValue Json.Decode.int (Json.Encode.int 5)
     Ok 5 : Result.Result String Int
+    
+---
 
+## Getting Pure Data from an Impure World
+
+All this grief is consistent with the nature of functional programming.  Elm is pure, the real world is not.  How do we reconcile this?? Very carefully :-/
+    
+Try **#5** My data is a list here's a similified version of the output from Github:
+
+[ {"id": 12, "name": "project"}, {}]
+
+Here's getting Json Encod/Decode to work on lists.
+
+    > import Json.Encode
+    > List.map Json.Encode.int [1,2,3,4,5]
+    [1,2,3,4,5] : List Json.Encode.Value
+    > Json.Encode.list (List.map Json.Encode.int [1,2,3,4,5])
+    { 0 = 1, 1 = 2, 2 = 3, 3 = 4, 4 = 5 } : Json.Encode.Value
 
 
 **Disclaimer** every bit of this could be wrong!
