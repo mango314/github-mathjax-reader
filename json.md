@@ -41,5 +41,51 @@ Next let's make a Get request
         
 That didn't work.  We need to write the Json decoder first.  Kind of stuck here!
 
+Try **#1**
+    
+    > repos = Json.list
+    <function: decodeList> : Json.Decode.Decoder a -> Json.Decode.Decoder (List a)
+    > Http.get repos "https://api.github.com/users/monsieurcactus/repos"
+    -- TYPE MISMATCH --------------------------------------------- repl-temp-000.elm
+    
+    The 1st argument to function `get` is causing a mismatch.
+    
+    5│   Http.get repos "https://api.github.com/users/monsieurcactus/repos"
+                  ^^^^^
+    Function `get` is expecting the 1st argument to be:
+    
+        Json.Decoder a
+    
+    But it is:
+    
+        Json.Decoder a -> Json.Decoder (List a)
+
+Try **#2**    
+    
+    > repos = Json.object1
+    <function: decodeObject1>
+        : (a -> b) -> Json.Decode.Decoder a -> Json.Decode.Decoder b
+    > Http.get repos "https://api.github.com/users/monsieurcactus/repos"
+    -- TYPE MISMATCH --------------------------------------------- repl-temp-000.elm
+    
+    The 1st argument to function `get` is causing a mismatch.
+    
+    5│   Http.get repos "https://api.github.com/users/monsieurcactus/repos"
+                  ^^^^^
+    Function `get` is expecting the 1st argument to be:
+    
+        Json.Decoder a
+    
+    But it is:
+    
+        (a -> b) -> Json.Decoder a -> Json.Decoder b
+
+Try **#3** - at least this is not a type mismatch!  Still can't get the information I want.
+    
+    > Http.get (Json.string) "https://api.github.com/users/monsieurcactus/repos"
+    { tag = "AndThen", task = { tag = "Catch", task = { tag = "Async", asyncFunction = <function> }, callback = <function> }, callback = <function> }
+        : Task.Task Http.Error String
+
+
 
 **Disclaimer** every bit of this could be wrong!
