@@ -101,7 +101,7 @@ All this grief is consistent with the nature of functional programming.  Elm is 
     
 Try **#5** My data is a list here's a similified version of the output from Github:
 
-    [ {"id": 12, "name": "project"}, {}]
+    [ {"id": 12, "name": "project"}, {"id": 35, "name": "anotherOne"}]
 
 Here's getting Json Encod/Decode to work on lists.
 
