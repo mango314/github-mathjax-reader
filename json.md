@@ -115,5 +115,17 @@ Here's getting Json Encod/Decode to work on lists.
 
 I asked on StackOverflow and someone wrote a great [answer](http://stackoverflow.com/questions/35028430/how-to-extract-the-results-of-http-requests-in-elm) and [gist](https://gist.github.com/freakingawesome/7f86ed7683cfeeec4557).  It certainly works if you pop into elm-lang.org/try but only for the one New York Times repo I ask about in the question.  My plan is to borrow his Json decoder and keep moving towards reading all Github probiles.
 
+### Function Composition Cheat Sheet
+
+    > (<<)
+    <function> : (a -> b) -> (c -> a) -> c -> b
+    > (>>)
+    <function> : (a -> b) -> (b -> c) -> a -> c
+    > (|>)
+    <function> : a -> (a -> b) -> b
+    > (<|)
+    <function> : (a -> b) -> a -> b
+
+
 
 **Disclaimer** every bit of this could be wrong!
