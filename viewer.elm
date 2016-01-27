@@ -10,7 +10,7 @@ import Task exposing (..)
 
 -- VIEW
 
-view : String -> String -> String -> Result String (List String) -> Html
+view : String -> String -> String -> Result String (List RepoInfo) -> Html
 view string1 string2 string3 result =
   let field =
       div [] [
@@ -43,7 +43,7 @@ view string1 string2 string3 result =
               [ div [ myStyle ] [ text msg ] ]
 
           Ok cities ->
-              List.map (\city -> div [ myStyle ] [ text city ]) cities
+              List.map (\ repo -> div [ myStyle ] [ text repo.name ]) cities
   in
       div [] (field :: messages)
 
@@ -85,33 +85,34 @@ file : Signal.Mailbox String
 file =
   Signal.mailbox ""
 
-results : Signal.Mailbox (Result String (List String))
+results : Signal.Mailbox (Result String (List RepoInfo))
 results =
   Signal.mailbox (Err "A valid US zip code is 5 numbers.")
 
 
 port requests : Signal (Task x ())
 port requests =
-  Signal.map lookupGitHub query.signal
-    |> Signal.map (\task -> Task.toResult task `andThen` Signal.send results.address)
+  Signal.map fetchData query.signal
+    |> Signal.map (\ task -> Task.toResult task `andThen` Signal.send results.address)
 
 
-lookupGitHub : String -> Task String (List String)
-lookupGitHub query =
-  let toUrl =
-        if String.length query == 0
-          then fail "Who Owns the Repository?"
-        else if String.length query > 0 && String.all Char.isLower query
-          then succeed ("https://api.github.com/users/" ++ query ++ "/repos")
-          else fail "Please use lower case"
-  in
-      toUrl `andThen` (mapError (always "Not found :(") << Http.get repos)
+-- from someone else's github gist
+type alias RepoInfo =
+  { id : Int
+  , name : String
+  }
 
--- http://package.elm-lang.org/packages/elm-lang/core/1.0.0/Json-Decode#:=
-repos : Json.Decoder (List String)
-repos =
-  let repo =
-        Json.object1 (\ name -> name)
-          ("name" := Json.string)
-  in
-      "repos" := Json.list repo
+repoInfoDecoder : Json.Decoder RepoInfo
+repoInfoDecoder =
+  Json.object2
+    RepoInfo
+    ("id" := Json.int) 
+    ("name" := Json.string) 
+
+repoInfoListDecoder : Json.Decoder (List RepoInfo)
+repoInfoListDecoder =
+  Json.list repoInfoDecoder
+
+fetchData : String -> Task Http.Error (List RepoInfo)
+fetchData url =
+  Http.get repoInfoListDecoder url
