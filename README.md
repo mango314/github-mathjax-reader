@@ -11,3 +11,9 @@ Necessity is the mother of invention.  This could be use as a very "lazy" way to
 Moreover it is easy to write.  Other examples (for d3.js) are Tributary and [bl.ocks.org](http://bl.ocks.org/) which just pull from github gist.
 
 Secondly, this is an exercise in MVC type frameworks (or just building apps - don't know if I used the term correctly).  We can use Flask or Elm-html or Express or any language we want to practice.
+
+---
+
+a hybrid of two different tutorials: http://elm-lang.org/examples/zip-codes and https://gist.github.com/freakingawesome/7f86ed7683cfeeec4557 we are able to write a responsive app that looks up the names of the repos for any user.
+
+additional follow-up work could be to enter the names of repos and list the files.  also improve the layout if possible.  all of this and more to come.
