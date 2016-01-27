@@ -24,4 +24,22 @@ it seems Http get requests are always answered a [`Json.Decode`](http://package.
 object of some kind.  That funny looking function [`(:=)`](http://package.elm-lang.org/packages/elm-lang/core/1.0.0/Json-Decode#:=) 
 takes a `String` and a `Json.Decode.Decoder` and returns another `Json.Decode.Decoder` of the same type.
 
+Next let's make a Get request
+
+    > Http.get "https://api.github.com/users/monsieurcactus/repos"
+    ==================================== ERRORS ====================================
+    
+    -- TYPE MISMATCH --------------------------------------------- repl-temp-000.elm
+    
+    The argument to function `get` is causing a mismatch.
+    
+    5│   Http.get "https://api.github.com/users/monsieurcactus/repos"
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    Function `get` is expecting the argument to be:
+    
+        Json.Decoder a
+        
+That didn't work.  We need to write the Json decoder first.  Kind of stuck here!
+
+
 **Disclaimer** every bit of this could be wrong!
