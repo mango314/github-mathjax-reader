@@ -7,9 +7,9 @@ The [source code](http://tug.org/texlive/devsrc/Build/source/texk/web2c/tex.web)
 An example of **literate programming** (which I think just means it's well commmented), this is the version officially in use today.
 The file is **both** the source code and the documentation book itself.  To compile the book, 3 lines worked nicely on my Linux.
 
-  weave tex.web
-  tex tex.tex
-  dvips tex.dvi -o tex.ps
+    weave tex.web
+    tex tex.tex
+    dvips tex.dvi -o tex.ps
   
   It took a while to learn the terminology and ask phrase the question in a way that experts could understand.
   Some reponse were still quite derisive, but I still could extract a meaningful answer.
@@ -43,6 +43,7 @@ Donald Knuth was not a graphic designer, graphic design has moved on since 1982 
 most designers cannot program.  So what can we do?  Even worse I am not good at either.
 
 Working with TeX, we have all the basic TeX features at our fingertips -- and much more flexiliby than if we used LaTeX.
-This will be important as we try to experiment with [fonts](http://www.thinkingwithtype.com/) and [grid](http://www.thinkingwithtype.com/contents/grid/) layouts.  [[1](http://tex.stackexchange.com/questions/1418/grid-system-in-latex)]
+This will be important as we try to experiment with [fonts](http://www.thinkingwithtype.com/) and [grid](http://www.thinkingwithtype.com/contents/grid/) layouts. 
+[[1](http://tex.stackexchange.com/questions/1418/grid-system-in-latex)]
 
 ![](http://i.imgur.com/vxlpSbx.png)
