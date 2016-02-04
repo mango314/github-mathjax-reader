@@ -19,7 +19,7 @@ The file is **both** the source code and the documentation book itself.  To comp
   * http://tex.stackexchange.com/questions/218567/latex-vs-word-improvements-of-latex-over-the-years?
   * [What is the Difference between TeX and LaTeX?](http://tex.stackexchange.com/questions/49/what-is-the-difference-between-tex-and-latex)
   
-  Basically LaTeX factors into two parts:  TeX (which is the core language) and LaTeX (which are macros which build around the language).
+Basically LaTeX factors into two parts:  TeX (which is the core language) and LaTeX (which are macros which build around the language).
   Almost always, LaTeX should be enough and much easier to use, but aspects of graphic design are hard to implement with the 
   macros provided.  Therefore, I have to resort to learning Tex, **but** at least I don't have to re-write all of TeX from scratch.
   
