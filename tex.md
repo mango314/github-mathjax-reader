@@ -43,7 +43,8 @@ Donald Knuth was not a graphic designer, graphic design has moved on since 1982 
 most designers cannot program.  So what can we do?  Even worse I am not good at either.
 
 Working with TeX, we have all the basic TeX features at our fingertips -- and much more flexiliby than if we used LaTeX.
-This will be important as we try to experiment with [fonts](http://www.thinkingwithtype.com/) and [grid](http://www.thinkingwithtype.com/contents/grid/) layouts.
+This will be important as we try to experiment with [fonts](http://www.thinkingwithtype.com/) and [grid](http://www.thinkingwithtype.com/contents/grid/) layouts. 
 
+* [Grid System in LaTeX](http://tex.stackexchange.com/questions/1418/grid-system-in-latex)
 
 ![](http://i.imgur.com/vxlpSbx.png)
