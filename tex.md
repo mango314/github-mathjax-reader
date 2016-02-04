@@ -47,3 +47,13 @@ This will be important as we try to experiment with [fonts](http://www.thinkingw
 [[1](http://tex.stackexchange.com/questions/1418/grid-system-in-latex)]
 
 ![](http://i.imgur.com/vxlpSbx.png)
+
+## Short Term Goals
+
+The **grid** as I know it is both simple and complicated.  Complicated in its simplicity.  One nuisiance is .  I will try to show pictures of all the NIGHTMARES that occur when we try to step outside of the boundaries of the LaTeX macros -- i.e. following **any** standard graphic design convention.
+
+In other words, any time we don't want to look like a math textbook we are f**ked.  Anytime we want to write in two-column format and the lines of text should agree *between the columns*, we are unable.  Anytime we want the `=` to align across the page instead of having every single equation centered... we are in trouble.
+
+Let me put it another way, why do you think the vast majority of LaTeX documents are in Computer Modern Font?  Regardless of whether it is appropriate it is the default font that LaTeX imposes on you.  Worse, I do not believe there are any other fonts designed with the math symbols included.  So we're stuck, unless we want to design our own font and we must venture into **typography**.  Ultimately it is for our own good. 
+
+Our Goal is to attempt to understand enough of Knuth's programmatic masterpiece - TeX - to be able to design our own page layouts in an easy non-painful way.  <del>No</del> pain, no gain!
