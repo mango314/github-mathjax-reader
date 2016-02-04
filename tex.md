@@ -56,6 +56,4 @@ In other words, any time we don't want to look like a math textbook we are f**ke
 
 Let me put it another way, why do you think the vast majority of LaTeX documents are in Computer Modern Font?  Regardless of whether it is appropriate it is the default font that LaTeX imposes on you.  Worse, I do not believe there are any other fonts designed with the math symbols included.  So we're stuck, unless we want to design our own font and we must venture into **typography**.  Ultimately it is for our own good. 
 
-Here is the book we shall use [Tex for the Impatient](http://ctan.uniminuto.edu/info/impatient/book.pdf) and if you are lucky, find a copy of Knuth's [The TexBook](https://www.ctan.org/pkg/texbook?lang=en).
-
-Our Goal is to attempt to understand enough of Knuth's programmatic masterpiece - TeX - to be able to design our own page layouts in an easy non-excruciating way.
+Here is the book we shall use [Tex for the Impatient](http://ctan.uniminuto.edu/info/impatient/book.pdf) and if you are lucky, find a copy of Knuth's [The TexBook](https://www.ctan.org/pkg/texbook?lang=en).  Our Goal is to attempt to understand enough of Knuth's programmatic masterpiece - TeX - to be able to design our own page layouts in an easy non-excruciating way.
