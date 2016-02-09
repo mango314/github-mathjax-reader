@@ -61,3 +61,5 @@ Here is the book we shall use [Tex for the Impatient](http://ctan.uniminuto.edu/
 **Sample Solution #1** Elm can be compiled to HTML and JavaScript ( via [`elm-html`](http://package.elm-lang.org/packages/evancz/elm-html/4.0.2/) - see [Blazing Fast HTML](http://elm-lang.org/blog/blazing-fast-html) or even [`hakyll`](https://jaspervdj.be/hakyll/) ) it would not be outrageous to try to compile to LaTeX.  At least if the `TeX` document is ugly and impossible to read, the Elm version is simple and expressive.  
 
 **Sample Solution #2** Github supports [Jupyter](https://github.com/blog/1995-github-jupyter-notebooks-3) notebooks, and we can type in the math easily that way.  If I am not mistaken, they might support CSS styles.  No consensus on StackOverflow
+
+**Sample Solution #3** I forked a Github repository and [added TeX support myself](https://github.com/MonsieurCactus/gummi)
