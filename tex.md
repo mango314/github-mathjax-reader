@@ -63,3 +63,7 @@ Here is the book we shall use [Tex for the Impatient](http://ctan.uniminuto.edu/
 **Sample Solution #2** Github supports [Jupyter](https://github.com/blog/1995-github-jupyter-notebooks-3) notebooks, and we can type in the math easily that way.  If I am not mistaken, they might support CSS styles.  No consensus on StackOverflow
 
 **Sample Solution #3** I forked a Github repository and [added TeX support myself](https://github.com/MonsieurCactus/gummi)
+
+### The Ultimate Typing Exercise:  My Notes!
+
+![](http://i.imgur.com/QE8GUGz.jpg)
